@@ -8,8 +8,9 @@ import { createPageUrl } from '@/utils';
 export default function SignOut() {
   const navigate = useNavigate();
 
-  const handleSignOut = () => {
-    base44.auth.logout(createPageUrl('Welcome'));
+  const handleSignOut = async () => {
+    await base44.auth.logout();
+    window.location.href = '/';
   };
 
   const handleCancel = () => {
