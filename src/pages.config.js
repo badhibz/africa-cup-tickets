@@ -1,20 +1,22 @@
 import Home from './pages/Home';
 import More from './pages/More';
+import SignOut from './pages/SignOut';
+import Splash from './pages/Splash';
 import TransferDetails from './pages/TransferDetails';
 import Transfers from './pages/Transfers';
-import Splash from './pages/Splash';
 import Welcome from './pages/Welcome';
-import SignOut from './pages/SignOut';
+import SignIn from './pages/SignIn';
 
 
 export const PAGES = {
     "Home": Home,
     "More": More,
+    "SignOut": SignOut,
+    "Splash": Splash,
     "TransferDetails": TransferDetails,
     "Transfers": Transfers,
-    "Splash": Splash,
     "Welcome": Welcome,
-    "SignOut": SignOut,
+    "SignIn": SignIn,
 }
 
 export const pagesConfig = {
