@@ -153,35 +153,35 @@ export default function Home() {
             {/* Event Ticket Card */}
             <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
               {/* Top Section - Image and Date */}
-              <div className="flex items-center bg-gray-100 p-3">
+              <div className="flex items-center bg-gray-100 p-2">
                 <div className="flex-1">
                   <img
                     src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696f816de3955d53dc61efeb/7146a9725_full-logo.png"
                     alt="CAF Africa Cup"
-                    className="w-full max-w-[280px] h-auto object-contain"
+                    className="w-full max-w-[200px] h-auto object-contain"
                   />
                 </div>
-                <div className="text-right pl-4 border-l-2 border-dashed border-gray-300">
-                  <div className="text-3xl font-bold text-gray-900">10</div>
-                  <div className="text-xs text-gray-500">JAN</div>
-                  <div className="text-lg font-semibold text-gray-700">26</div>
-                  <div className="text-sm text-gray-600 mt-1">20:00</div>
+                <div className="text-right pl-3 border-l-2 border-[#8B1A1A]">
+                  <div className="text-2xl font-bold text-gray-900">10</div>
+                  <div className="text-[10px] text-gray-500">JAN</div>
+                  <div className="text-base font-semibold text-gray-700">26</div>
+                  <div className="text-xs text-gray-600 mt-0.5">20:00</div>
                 </div>
               </div>
 
               {/* Bottom Section - Event Details */}
-              <div className="p-4 flex items-center justify-between">
+              <div className="p-3 flex items-center justify-between">
                 <div className="flex-1">
-                  <h3 className="font-semibold text-gray-900 text-base mb-1 leading-tight">
+                  <h3 className="font-semibold text-gray-900 text-sm mb-0.5 leading-tight">
                     Egypte vs Côte d'Ivoire | Quarts de finale
                   </h3>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-xs text-gray-600">
                     Grand Stade D'AGADIR
                   </p>
                 </div>
-                <div className="flex items-center gap-1.5 text-gray-600 ml-3">
-                  <span className="font-medium">1</span>
-                  <Ticket className="w-4 h-4" />
+                <div className="flex items-center gap-1 text-gray-600 ml-2">
+                  <span className="font-medium text-sm">1</span>
+                  <Ticket className="w-3.5 h-3.5" />
                 </div>
               </div>
             </div>
