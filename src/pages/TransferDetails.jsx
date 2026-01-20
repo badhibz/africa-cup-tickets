@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronLeft, ChevronDown, ChevronUp, ArrowUpRight, Ticket } from 'lucide-react';
+import { ChevronLeft, ChevronDown, ChevronUp, Ticket } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import TransferBadge from '../components/transfers/TransferBadge';
 
 export default function TransferDetails() {
   const navigate = useNavigate();
