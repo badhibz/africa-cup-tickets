@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Ticket, ArrowLeftRight, MoreHorizontal, ChevronRight, ArrowUpRight, ArrowDownLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 
 export default function Transfers() {
+  const navigate = useNavigate();
   const [activeBottomTab, setActiveBottomTab] = useState('transfers');
   const [activeTab, setActiveTab] = useState('completed');
 
@@ -138,6 +139,7 @@ export default function Transfers() {
             {completedTransfers.map((transfer) => (
               <div
                 key={transfer.id}
+                onClick={() => navigate(createPageUrl('TransferDetails'))}
                 className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 shadow-sm flex items-center gap-4 cursor-pointer hover:bg-white/90 transition-colors"
               >
                 {/* Ticket Count Badge */}
