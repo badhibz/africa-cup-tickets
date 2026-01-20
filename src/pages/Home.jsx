@@ -4,7 +4,7 @@ import { Ticket } from 'lucide-react';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#C8102E] flex flex-col items-center justify-center relative overflow-hidden px-4">
+    <div className="min-h-screen bg-[#8B1A1A] flex flex-col items-center justify-center relative overflow-hidden px-4">
       {/* Subtle gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20 pointer-events-none" />
       
