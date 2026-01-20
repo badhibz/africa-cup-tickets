@@ -22,6 +22,6 @@ export const PAGES = {
 }
 
 export const pagesConfig = {
-    mainPage: "SignIn",
+    mainPage: "Welcome",
     Pages: PAGES,
 };
