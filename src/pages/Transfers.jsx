@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Ticket, ArrowLeftRight, MoreHorizontal, ChevronRight, ArrowUpRight, ArrowDownLeft } from 'lucide-react';
+import { Ticket, ArrowLeftRight, MoreHorizontal, ChevronRight } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
+import TransferBadge from '../components/transfers/TransferBadge';
 
 export default function Transfers() {
   const navigate = useNavigate();
