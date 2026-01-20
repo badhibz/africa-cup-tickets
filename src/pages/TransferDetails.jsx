@@ -39,41 +39,36 @@ export default function TransferDetails() {
         </div>
 
         {/* Event Card */}
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-5 shadow-sm">
-          {/* Ticket Count Badge */}
-          <div className="flex items-start gap-3 mb-4">
-            <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
-              <span className="text-lg font-bold text-purple-900">1</span>
-            </div>
-            <div className="flex-1">
-              <h3 className="font-bold text-gray-900 text-base mb-2">
-                Maroc vs Tanzanie | Huitièmes de finale
-              </h3>
-              <div className="text-sm text-gray-600 space-y-1">
-                <p>04.01.2026 • 17:00 • Complexe Sportif Prince MOULAY ABDELLAH</p>
+        <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-5 shadow-sm">
+            {/* Ticket Count Badge and Event Info */}
+            <div className="flex items-start gap-3">
+              <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-lg font-bold text-purple-900">1</span>
               </div>
-            </div>
-          </div>
-
-          {/* Collapsible Seat Details */}
-          <Collapsible open={isOpen} onOpenChange={setIsOpen}>
-            <CollapsibleTrigger className="w-full">
-              <div className="flex items-center justify-between py-3 border-t border-gray-200">
-                <div className="text-left">
-                  <p className="text-sm font-semibold text-gray-900">
-                    Gate 07 • Area 229 • Block 229
-                  </p>
+              <div className="flex-1">
+                <h3 className="font-bold text-gray-900 text-base mb-2">
+                  Maroc vs Tanzanie | Huitièmes de finale
+                </h3>
+                <div className="text-sm text-gray-600">
+                  <p>04.01.2026 • 17:00 • Complexe Sportif Prince MOULAY ABDELLAH</p>
                 </div>
-                {isOpen ? (
-                  <ChevronUp className="w-5 h-5 text-gray-400" />
-                ) : (
-                  <ChevronDown className="w-5 h-5 text-gray-400" />
-                )}
               </div>
-            </CollapsibleTrigger>
-            
+              <CollapsibleTrigger>
+                {isOpen ? (
+                  <ChevronUp className="w-5 h-5 text-gray-400 flex-shrink-0 mt-1" />
+                ) : (
+                  <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0 mt-1" />
+                )}
+              </CollapsibleTrigger>
+            </div>
+
+            {/* Collapsible Seat Details */}
             <CollapsibleContent>
-              <div className="pb-3 space-y-3">
+              <div className="pt-4 mt-4 border-t border-gray-200 space-y-3">
+                <p className="text-sm font-semibold text-gray-900">
+                  Gate 07 • Area 229 • Block 229
+                </p>
                 {/* Seat Details */}
                 <div className="flex items-center gap-3 bg-purple-50 rounded-xl p-3">
                   <Ticket className="w-5 h-5 text-purple-700" />
@@ -84,8 +79,8 @@ export default function TransferDetails() {
                 </div>
               </div>
             </CollapsibleContent>
-          </Collapsible>
-        </div>
+          </div>
+        </Collapsible>
       </div>
     </div>
   );
