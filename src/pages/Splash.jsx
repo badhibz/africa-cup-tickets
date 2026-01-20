@@ -15,24 +15,24 @@ export default function Splash() {
   }, [navigate]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#A84A5C] via-[#8B1A1A] to-[#7B1A1A] flex flex-col items-center justify-center gap-12">
+    <div className="min-h-screen bg-gradient-to-b from-[#9B4A54] via-[#8B1A1A] to-[#7B1515] flex flex-col items-center justify-center gap-16 px-6">
       <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="flex flex-col items-center gap-12"
+        className="flex flex-col items-center gap-16"
       >
         <img
           src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696f816de3955d53dc61efeb/524cc0316_full-logo.png"
           alt="CAF Africa Cup of Nations Morocco 25"
-          className="w-64 h-auto"
+          className="w-72"
         />
         
-        <div className="relative">
-          <div className="bg-gradient-to-b from-[#973238] to-[#6B1515] text-white font-bold text-4xl px-20 py-6 rounded-2xl border-4 border-[#5A1010] shadow-[inset_0_-6px_0_0_rgba(0,0,0,0.3),inset_0_2px_0_0_rgba(255,255,255,0.1),0_6px_0_0_rgba(90,16,16,0.5)]">
-            TICKETS
-          </div>
-        </div>
+        <img
+          src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696f816de3955d53dc61efeb/435c03b4a_image.png"
+          alt="Tickets"
+          className="w-80"
+        />
       </motion.div>
     </div>
   );
