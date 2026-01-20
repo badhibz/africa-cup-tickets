@@ -3,6 +3,7 @@ import More from './pages/More';
 import TransferDetails from './pages/TransferDetails';
 import Transfers from './pages/Transfers';
 import Splash from './pages/Splash';
+import Welcome from './pages/Welcome';
 
 
 export const PAGES = {
@@ -11,6 +12,7 @@ export const PAGES = {
     "TransferDetails": TransferDetails,
     "Transfers": Transfers,
     "Splash": Splash,
+    "Welcome": Welcome,
 }
 
 export const pagesConfig = {
