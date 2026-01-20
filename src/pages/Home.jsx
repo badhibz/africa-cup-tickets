@@ -68,7 +68,7 @@ export default function Home() {
                 <img
                   src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696f816de3955d53dc61efeb/46f000d86_two_qr_phone.png"
                   alt="No tickets"
-                  className="w-24 h-24"
+                  className="w-32 h-32 object-contain"
                 />
               </div>
 
@@ -80,13 +80,11 @@ export default function Home() {
               <div className="space-y-6 mb-8">
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 mt-1">
-                    <div className="w-12 h-12 bg-red-50 rounded-lg flex items-center justify-center">
-                      <img
-                        src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696f816de3955d53dc61efeb/0236c530e_qr_phone.png"
-                        alt="QR Phone"
-                        className="w-6 h-6"
-                      />
-                    </div>
+                    <img
+                      src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696f816de3955d53dc61efeb/0236c530e_qr_phone.png"
+                      alt="QR Phone"
+                      className="w-12 h-12 object-contain"
+                    />
                   </div>
                   <p className="text-sm text-gray-600 leading-relaxed">
                     <span className="font-semibold text-gray-800">Need to know:</span> if you purchased tickets, your mobile tickets will appear in the app closer to the event date. You will receive an email and a notification as soon as your mobile tickets are available.
@@ -95,13 +93,11 @@ export default function Home() {
 
                 <div className="flex gap-4">
                   <div className="flex-shrink-0 mt-1">
-                    <div className="w-12 h-12 bg-red-50 rounded-lg flex items-center justify-center">
-                      <img
-                        src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696f816de3955d53dc61efeb/a2395d01f_unknown_email.png"
-                        alt="Email"
-                        className="w-6 h-6"
-                      />
-                    </div>
+                    <img
+                      src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696f816de3955d53dc61efeb/a2395d01f_unknown_email.png"
+                      alt="Email"
+                      className="w-12 h-12 object-contain"
+                    />
                   </div>
                   <p className="text-sm text-gray-600 leading-relaxed">
                     If you logged into the app using an email address other than the one with which you purchased the tickets, please log out and log in again using the correct email address.
@@ -193,7 +189,7 @@ export default function Home() {
           <img
             src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696f816de3955d53dc61efeb/c18d12009_ic_transfer.png"
             alt="Transfers"
-            className="w-6 h-6"
+            className="w-7 h-7 object-contain"
           />
           <span className="text-xs font-medium">Transfers</span>
         </Link>
