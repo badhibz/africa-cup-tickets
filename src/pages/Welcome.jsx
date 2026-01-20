@@ -45,7 +45,7 @@ export default function Welcome() {
             className="w-full bg-white hover:bg-gray-100 text-[#8B1A1A] font-bold text-lg py-6 rounded-xl shadow-lg"
             style={{ fontFamily: 'Dunbar, sans-serif' }}
           >
-            BEGIN
+            Begin
           </Button>
         </motion.div>
       </div>
