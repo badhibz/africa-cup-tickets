@@ -4,6 +4,7 @@ import TransferDetails from './pages/TransferDetails';
 import Transfers from './pages/Transfers';
 import Splash from './pages/Splash';
 import Welcome from './pages/Welcome';
+import SignOut from './pages/SignOut';
 
 
 export const PAGES = {
@@ -13,6 +14,7 @@ export const PAGES = {
     "Transfers": Transfers,
     "Splash": Splash,
     "Welcome": Welcome,
+    "SignOut": SignOut,
 }
 
 export const pagesConfig = {
