@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { Ticket, ArrowLeftRight, MoreHorizontal, Mail, HelpCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Link } from 'react-router-dom';
+import { createPageUrl } from './utils';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('upcoming');
@@ -204,35 +206,23 @@ export default function Home() {
       <div className="bg-white border-t border-purple-200 px-4 py-3 flex justify-around items-center sticky bottom-0">
         <button
           onClick={() => setActiveBottomTab('my-tickets')}
-          className={`flex flex-col items-center gap-1 transition-colors ${
-            activeBottomTab === 'my-tickets'
-              ? 'text-purple-800'
-              : 'text-gray-400'
-          }`}
+          className="flex flex-col items-center gap-1 transition-colors text-purple-800"
         >
           <Ticket className="w-6 h-6" />
           <span className="text-xs font-medium">My Tickets</span>
         </button>
 
-        <button
-          onClick={() => setActiveBottomTab('transfers')}
-          className={`flex flex-col items-center gap-1 transition-colors ${
-            activeBottomTab === 'transfers'
-              ? 'text-purple-800'
-              : 'text-gray-400'
-          }`}
+        <Link
+          to={createPageUrl('Transfers')}
+          className="flex flex-col items-center gap-1 transition-colors text-gray-400"
         >
           <ArrowLeftRight className="w-6 h-6" />
           <span className="text-xs font-medium">Transfers</span>
-        </button>
+        </Link>
 
         <button
           onClick={() => setActiveBottomTab('more')}
-          className={`flex flex-col items-center gap-1 transition-colors ${
-            activeBottomTab === 'more'
-              ? 'text-purple-800'
-              : 'text-gray-400'
-          }`}
+          className="flex flex-col items-center gap-1 transition-colors text-gray-400"
         >
           <MoreHorizontal className="w-6 h-6" />
           <span className="text-xs font-medium">More</span>
