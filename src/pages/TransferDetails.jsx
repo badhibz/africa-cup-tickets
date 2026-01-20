@@ -39,8 +39,8 @@ export default function TransferDetails() {
           <div className="bg-white rounded-2xl p-5 shadow-sm">
             {/* Ticket Count Badge and Event Info */}
             <div className="flex items-start gap-3">
-              <div className="w-10 h-10 bg-red-50 rounded-full flex items-center justify-center flex-shrink-0">
-                <span className="text-lg font-bold text-[#8B1A1A]">1</span>
+              <div className="w-10 h-10 bg-[#F0F2F5] rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-sm font-bold text-gray-800">1</span>
               </div>
               <div className="flex-1">
                 <h3 className="font-bold text-gray-900 text-base mb-2">
