@@ -15,23 +15,16 @@ export default function Splash() {
   }, [navigate]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#9B4A54] via-[#8B1A1A] to-[#7B1515] flex flex-col items-center justify-center gap-16 px-6">
+    <div className="min-h-screen bg-gradient-to-b from-[#9B4A54] via-[#8B1A1A] to-[#7B1515] flex items-center justify-center px-6">
       <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
-        className="flex flex-col items-center gap-16"
       >
         <img
-          src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696f816de3955d53dc61efeb/524cc0316_full-logo.png"
+          src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696f816de3955d53dc61efeb/2872e4fd3_Gemini_Generated_Image_d0dgewd0dgewd0dg.png"
           alt="CAF Africa Cup of Nations Morocco 25"
-          className="w-72"
-        />
-        
-        <img
-          src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696f816de3955d53dc61efeb/435c03b4a_image.png"
-          alt="Tickets"
-          className="w-80"
+          className="w-full max-w-lg"
         />
       </motion.div>
     </div>
