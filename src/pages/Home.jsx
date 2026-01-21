@@ -205,11 +205,7 @@ export default function Home() {
           to={createPageUrl('Transfers')}
           className="flex flex-col items-center gap-1 transition-colors text-gray-400"
         >
-          <img
-            src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696f816de3955d53dc61efeb/c18d12009_ic_transfer.png"
-            alt="Transfers"
-            className="w-7 h-7 object-contain"
-          />
+          <ArrowLeftRight className="w-6 h-6" />
           <span className="text-xs font-medium">Transfers</span>
         </Link>
 
