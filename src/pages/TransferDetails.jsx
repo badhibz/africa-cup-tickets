@@ -75,14 +75,14 @@ export default function TransferDetails() {
             <CollapsibleContent>
               {/* --- LIGNE DE DÉCOUPE --- */}
               <div className="relative flex items-center w-full h-8">
-                {/* Encoche Gauche (bg-gray-50 = couleur du fond de page) */}
-                <div className="absolute left-0 w-3 h-6 bg-gray-50 rounded-r-full z-10" />
+                {/* Encoche Gauche : Plus visible (w-4 h-8) */}
+                <div className="absolute left-0 w-4 h-8 bg-gray-50 rounded-r-full z-10" />
                 
-                {/* Ligne Pointillée (subtile) */}
-                <div className="flex-1 border-t-2 border-dashed border-gray-100 mx-5 h-0" />
+                {/* Ligne Pointillée : Un peu plus foncée pour être visible sur le blanc */}
+                <div className="flex-1 border-t-2 border-dashed border-gray-300 mx-6 h-0" />
                 
-                {/* Encoche Droite */}
-                <div className="absolute right-0 w-3 h-6 bg-gray-50 rounded-l-full z-10" />
+                {/* Encoche Droite : Plus visible (w-4 h-8) */}
+                <div className="absolute right-0 w-4 h-8 bg-gray-50 rounded-l-full z-10" />
               </div>
 
               {/* Détails */}
