@@ -24,12 +24,12 @@ export default function TransferDetails() {
         <div className="flex justify-center">
           <div className="relative inline-flex items-center justify-center">
             {/* Main Avatar */}
-            <div className="w-20 h-20 rounded-full bg-[#F0F2F5] flex items-center justify-center">
+            <div className="w-20 h-20 rounded-full bg-white shadow-md flex items-center justify-center">
               <span className="text-3xl font-bold text-gray-900">1</span>
             </div>
 
             {/* Badge Icon - Bottom Right */}
-            <div className="absolute bottom-0 right-0 w-6 h-6 bg-transparent border-2 border-[#5B8DEE] rounded-full flex items-center justify-center">
+            <div className="absolute bottom-0 right-0 w-6 h-6 bg-white border-2 border-[#5B8DEE] rounded-full flex items-center justify-center">
               <ArrowUpRight className="w-3.5 h-3.5" style={{ color: '#5B8DEE' }} />
             </div>
           </div>
