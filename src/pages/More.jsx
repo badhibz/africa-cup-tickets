@@ -1,121 +1,98 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Ticket, ArrowLeftRight, MoreHorizontal, ChevronRight, User, Globe, Link2, CreditCard, LogOut } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { createPageUrl } from '@/utils';
+import { motion } from 'framer-motion'; // Assure-toi d'importer motion
+import { ChevronLeft, ChevronDown, Ticket, ArrowUpRight } from 'lucide-react'; // Plus besoin de ChevronUp
+import { useNavigate } from 'react-router-dom';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import TransferBadge from '../components/transfers/TransferBadge';
 
-export default function More() {
-  const [activeBottomTab, setActiveBottomTab] = useState('more');
-
-  const menuItems = [
-    { icon: User, label: 'My Profile', path: '#' },
-    { icon: Globe, label: 'App language', path: '#' },
-    { icon: Link2, label: 'More information', path: '#' },
-    { icon: CreditCard, label: 'Support details', path: '#' },
-  ];
+export default function TransferDetails() {
+  const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
-      {/* Header with Email */}
-      <div className="bg-gray-50 px-4 pt-6 pb-4">
-        <p className="text-2xl font-semibold text-gray-900">ad@gmail.com</p>
-      </div>
-
-      {/* Main Content */}
-      <div className="flex-1 px-4 py-6 space-y-4">
-        {/* Group 1: Profile & Language */}
-        <div className="space-y-0 bg-white rounded-xl overflow-hidden">
-          <motion.button
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="w-full p-4 flex items-center gap-4 hover:bg-gray-100 transition-colors border-b border-gray-100"
-          >
-            <User className="w-5 h-5 text-gray-700 flex-shrink-0" />
-            <span className="flex-1 text-left text-gray-700">My Profile</span>
-            <ChevronRight className="w-5 h-5 text-gray-400" />
-          </motion.button>
-          <motion.button
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.05 }}
-            className="w-full p-4 flex items-center gap-4 hover:bg-gray-100 transition-colors"
-          >
-            <Globe className="w-5 h-5 text-gray-700 flex-shrink-0" />
-            <span className="flex-1 text-left text-gray-700">App language</span>
-            <ChevronRight className="w-5 h-5 text-gray-400" />
-          </motion.button>
-        </div>
-
-        {/* Group 2: Info & Support */}
-        <div className="space-y-0 bg-white rounded-xl overflow-hidden">
-          <motion.button
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="w-full p-4 flex items-center gap-4 hover:bg-gray-100 transition-colors border-b border-gray-100"
-          >
-            <Link2 className="w-5 h-5 text-gray-700 flex-shrink-0" />
-            <span className="flex-1 text-left text-gray-700">More information</span>
-            <ChevronRight className="w-5 h-5 text-gray-400" />
-          </motion.button>
-          <motion.button
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15 }}
-            className="w-full p-4 flex items-center gap-4 hover:bg-gray-100 transition-colors"
-          >
-            <CreditCard className="w-5 h-5 text-gray-700 flex-shrink-0" />
-            <span className="flex-1 text-left text-gray-700">Support details</span>
-            <ChevronRight className="w-5 h-5 text-gray-400" />
-          </motion.button>
-        </div>
-
-        {/* Sign Out */}
-        <div className="pt-4">
-          <Link to={createPageUrl('SignOut')}>
-            <motion.button
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="w-full bg-white rounded-xl p-4 flex items-center gap-4 hover:bg-gray-100 transition-colors"
-            >
-              <LogOut className="w-5 h-5 text-gray-700 flex-shrink-0" />
-              <span className="flex-1 text-left text-gray-700">Sign out</span>
-              <ChevronRight className="w-5 h-5 text-gray-400" />
-            </motion.button>
-          </Link>
-        </div>
-      </div>
-
-      {/* Bottom Navigation */}
-      <div className="bg-white border-t border-gray-200 px-4 py-3 flex justify-around items-center sticky bottom-0">
-        <Link
-          to={createPageUrl('Home')}
-          className="flex flex-col items-center gap-1 transition-colors text-gray-400"
-        >
-          <Ticket className="w-6 h-6" />
-          <span className="text-xs font-medium">My Tickets</span>
-        </Link>
-
-        <Link
-          to={createPageUrl('Transfers')}
-          className="flex flex-col items-center gap-1 transition-colors text-gray-400"
-        >
-          <img
-            src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696f816de3955d53dc61efeb/c18d12009_ic_transfer.png"
-            alt="Transfers"
-            className="w-7 h-7 object-contain"
-          />
-          <span className="text-xs font-medium">Transfers</span>
-        </Link>
-
+    <div className="min-h-screen bg-gray-50">
+      <div className="px-4 pt-6 pb-6 space-y-6">
+        {/* Back Button */}
         <button
-          onClick={() => setActiveBottomTab('more')}
-          className="flex flex-col items-center gap-1 transition-colors text-[#8B1A1A]"
+          onClick={() => navigate(-1)}
+          className="flex items-center gap-2 text-gray-700 hover:text-gray-900"
         >
-          <MoreHorizontal className="w-6 h-6" />
-          <span className="text-xs font-medium">More</span>
+          <ChevronLeft className="w-5 h-5" />
         </button>
+
+        {/* Transfer Badge */}
+        <div className="flex justify-center">
+          <TransferBadge count={1} type="sent" />
+        </div>
+
+        {/* Transfer Info */}
+        <div className="text-center">
+          <p className="text-sm text-gray-600 mb-1">Transferred to</p>
+          <p className="text-lg font-semibold text-gray-900">mohammed.sadry@gmail.com</p>
+        </div>
+
+        {/* --- TICKET CARD --- */}
+        <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+          <div className="bg-white rounded-2xl shadow-sm overflow-hidden transition-all duration-300">
+            
+            {/* Header */}
+            <div className="p-5 relative bg-white z-20">
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 bg-[#F0F2F5] rounded-full flex items-center justify-center flex-shrink-0">
+                  <span className="text-sm font-bold text-gray-800">1</span>
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-bold text-gray-900 text-base mb-2">
+                    Maroc vs Tanzanie | Huitièmes de finale
+                  </h3>
+                  <div className="text-sm text-gray-600">
+                    <p>04.01.2026 • 17:00 • Complexe Sportif Prince MOULAY ABDELLAH</p>
+                  </div>
+                </div>
+                
+                {/* --- L'ANIMATION DE ROTATION EST ICI --- */}
+                <CollapsibleTrigger asChild>
+                  <button className="flex-shrink-0 mt-1 focus:outline-none">
+                    <motion.div
+                      initial={false}
+                      animate={{ rotate: isOpen ? 180 : 0 }} // Rotation de 0 à 180 degrés
+                      transition={{ duration: 0.3, ease: "easeInOut" }} // Durée fluide
+                    >
+                      <ChevronDown className="w-5 h-5 text-gray-400" />
+                    </motion.div>
+                  </button>
+                </CollapsibleTrigger>
+                {/* --------------------------------------- */}
+
+              </div>
+            </div>
+
+            {/* Contenu Dépliable */}
+            <CollapsibleContent>
+              <div className="relative flex items-center w-full h-6 bg-white">
+                <div className="w-6 h-6 bg-gray-50 rounded-full absolute -left-3 z-10" />
+                <div className="flex-1 border-t-2 border-dashed border-gray-100 mx-4 h-0" />
+                <div className="w-6 h-6 bg-gray-50 rounded-full absolute -right-3 z-10" />
+              </div>
+
+              <div className="p-5 pt-2 bg-white">
+                <p className="text-sm font-semibold text-gray-900 mb-3">
+                  Gate 07 • Area 229 • Block 229
+                </p>
+                <div className="flex items-center gap-3 bg-[#F9FAFB] rounded-xl p-3 border border-gray-100">
+                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
+                    <Ticket className="w-5 h-5" style={{ color: '#a91101' }} />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-gray-900">Row U • Seat 18</p>
+                    <p className="text-xs text-gray-600 mt-1">04010081232</p>
+                  </div>
+                </div>
+              </div>
+            </CollapsibleContent>
+
+          </div>
+        </Collapsible>
       </div>
     </div>
   );
