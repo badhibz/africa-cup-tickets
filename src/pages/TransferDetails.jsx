@@ -25,7 +25,17 @@ export default function TransferDetails() {
       <div className="px-4 py-6 space-y-6">
         {/* Transfer Badge */}
         <div className="flex justify-center">
-          <TransferBadge count={1} type="sent" />
+          <div className="relative inline-flex items-center justify-center">
+            {/* Main Avatar */}
+            <div className="w-32 h-32 rounded-full bg-white flex items-center justify-center shadow-sm">
+              <span className="text-5xl font-bold text-gray-900">1</span>
+            </div>
+
+            {/* Badge Icon - Bottom Right */}
+            <div className="absolute bottom-2 right-2 w-8 h-8 bg-white border-2 border-gray-300 rounded-full flex items-center justify-center shadow-sm">
+              <ArrowUpRight className="w-4 h-4 text-gray-400" />
+            </div>
+          </div>
         </div>
 
         {/* Transfer Info */}
