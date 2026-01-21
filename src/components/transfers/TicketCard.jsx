@@ -11,10 +11,10 @@ export default function TicketCard({ transfer }) {
       onClick={() => setIsExpanded(!isExpanded)}
       layout
     >
-      <div className="bg-white shadow-lg rounded-2xl overflow-hidden">
+      <div className="bg-white shadow-lg rounded-2xl overflow-hidden relative">
         
-        {/* Top Section - Always Visible */}
-        <div className="p-5 pb-0">
+        {/* Top Section - Always Visible (Rectangle normal quand fermé) */}
+        <div className="p-5 bg-white relative z-20">
           <div className="flex items-start gap-3">
             <div className="w-10 h-10 bg-[#F0F2F5] rounded-full flex items-center justify-center flex-shrink-0">
               <span className="text-sm font-bold text-gray-800">1</span>
@@ -29,18 +29,13 @@ export default function TicketCard({ transfer }) {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* --- TEAR LINE SECTION (Dynamic placement) --- */}
-        <div className="relative flex items-center w-full h-10 my-1">
-            {/* Left Notch - Matches parent background (gray-50 usually, check your page bg) */}
-            <div className="absolute -left-3 w-6 h-6 bg-gray-50 rounded-full z-10"></div>
-            
-            {/* Dashed Line */}
-            <div className="flex-1 border-t-2 border-dashed border-gray-200 mx-5"></div>
-            
-            {/* Right Notch */}
-            <div className="absolute -right-3 w-6 h-6 bg-gray-50 rounded-full z-10"></div>
+          
+          {/* Indicateur visuel quand fermé */}
+          {!isExpanded && (
+            <div className="pt-3 flex justify-center">
+              <div className="w-8 h-1 bg-gray-100 rounded-full"></div>
+            </div>
+          )}
         </div>
 
         {/* Bottom Section - Expandable */}
@@ -51,8 +46,19 @@ export default function TicketCard({ transfer }) {
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="overflow-hidden"
+              className="overflow-hidden bg-white"
             >
+              {/* --- LIGNE DE DÉCOUPE (À l'intérieur de l'animation) --- */}
+              <div className="relative flex items-center w-full h-8">
+                 {/* Encoche Gauche (bg-gray-50 pour simuler la transparence du fond) */}
+                 <div className="absolute -left-3 w-6 h-6 bg-gray-50 rounded-full z-10"></div>
+                 {/* Pointillés */}
+                 <div className="flex-1 border-t-2 border-dashed border-gray-200 mx-5"></div>
+                 {/* Encoche Droite */}
+                 <div className="absolute -right-3 w-6 h-6 bg-gray-50 rounded-full z-10"></div>
+              </div>
+
+              {/* Contenu du bas */}
               <div className="p-5 pt-0 space-y-4">
                 <div>
                   <p className="text-sm font-semibold text-gray-900 mb-3">
@@ -69,22 +75,17 @@ export default function TicketCard({ transfer }) {
                   </div>
                 </div>
 
-                {/* QR Code Area */}
+                {/* QR Code Placeholder */}
                 <div className="flex flex-col items-center py-2">
-                   {/* ... QR Code content ... */}
+                   <div className="w-24 h-24 bg-gray-100 rounded flex items-center justify-center">
+                      <span className="text-xs text-gray-400">QR CODE</span>
+                   </div>
                    <p className="text-xs text-gray-500 mt-2">Scan at entrance</p>
                 </div>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
-
-        {/* Indicator if collapsed */}
-        {!isExpanded && (
-          <div className="pb-3 flex justify-center">
-            <div className="w-8 h-1 bg-gray-200 rounded-full"></div>
-          </div>
-        )}
       </div>
     </motion.div>
   );
