@@ -98,7 +98,7 @@ export default function TransferDetails() {
                     <Ticket className="w-5 h-5 text-blue-300" />
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-gray-900">Row U • Seat 18</p>
+                    <p className="text-sm font-semibold text-900">Row U • Seat 18</p>
                     <p className="text-xs text-gray-600 mt-1">04010081232</p>
                   </div>
                 </div>
