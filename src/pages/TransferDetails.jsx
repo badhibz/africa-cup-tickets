@@ -39,7 +39,7 @@ export default function TransferDetails() {
         {/* --- DEBUT DU BILLET --- */}
         <Collapsible open={isOpen} onOpenChange={setIsOpen}>
           {/* Conteneur principal du billet : overflow-hidden est important pour les coins */}
-          <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
+          <div className="bg-white rounded-2xl shadow-sm overflow-hidden max-w-sm mx-auto">
             
             {/* PARTIE HAUTE (Toujours visible) */}
             <div className="p-5 pb-4">
