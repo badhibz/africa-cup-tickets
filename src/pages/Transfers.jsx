@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Ticket, ArrowLeftRight, MoreHorizontal, ChevronRight } from 'lucide-react';
+import { Ticket, ArrowLeftRight, MoreHorizontal, ChevronRight, SlidersHorizontal } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import TransferBadge from '../components/transfers/TransferBadge';
@@ -78,8 +78,16 @@ export default function Transfers() {
         </div>
       </div>
 
+      {/* Filter Button */}
+      <div className="px-4 py-3">
+        <button className="flex items-center gap-2 px-3 py-2 bg-gray-100 rounded-lg text-sm text-gray-600">
+          <SlidersHorizontal className="w-4 h-4" />
+          <span>Filter</span>
+        </button>
+      </div>
+
       {/* Main Content */}
-      <div className="flex-1 px-4 py-4">
+      <div className="flex-1 px-4 py-0">
         {activeTab === 'pending' ? (
           <div className="flex flex-col items-center justify-center py-12">
             <motion.div
