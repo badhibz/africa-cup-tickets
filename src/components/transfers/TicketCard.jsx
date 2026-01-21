@@ -12,16 +12,10 @@ export default function TicketCard({ transfer }) {
       layout
     >
       <div
-        className="bg-white shadow-lg overflow-visible relative"
+        className="bg-white shadow-lg relative"
         style={{
           borderRadius: '16px',
-          background: 'white',
-          maskImage: `radial-gradient(circle at 0px 50%, transparent 0, transparent 12px, black 13px), radial-gradient(circle at 100% 50%, transparent 0, transparent 12px, black 13px)`,
-          maskSize: '100% 100%',
-          maskComposite: 'intersect',
-          WebkitMaskImage: `radial-gradient(circle at 0px 50%, transparent 0, transparent 12px, black 13px), radial-gradient(circle at 100% 50%, transparent 0, transparent 12px, black 13px)`,
-          WebkitMaskComposite: 'source-in',
-          WebkitMaskSize: '100% 100%',
+          clipPath: 'polygon(0 20px, 20px 20px, 20px 0, calc(100% - 20px) 0, calc(100% - 20px) 20px, 100% 20px, 100% calc(50% - 15px), calc(100% - 15px) 50%, 100% calc(50% + 15px), 100% calc(100% - 20px), calc(100% - 20px) calc(100% - 20px), calc(100% - 20px) 100%, 20px 100%, 20px calc(100% - 20px), 0 calc(100% - 20px), 0 calc(50% + 15px), 15px 50%, 0 calc(50% - 15px))',
         }}
       >
         {/* Top Section - Always Visible */}
