@@ -16,9 +16,9 @@ export default function TransferDetails() {
         {/* Back Button */}
         <button
           onClick={() => navigate(-1)}
-          className="flex items-center gap-2 text-gray-700 hover:text-gray-900"
+          className="text-gray-700 hover:text-gray-900"
         >
-          <ChevronLeft className="w-5 h-5" />
+          <ChevronLeft className="w-6 h-6" />
         </button>
         {/* Transfer Badge */}
         <div className="flex justify-center">
@@ -43,7 +43,7 @@ export default function TransferDetails() {
 
         {/* Event Card */}
         <Collapsible open={isOpen} onOpenChange={setIsOpen}>
-          <div className="bg-white rounded-2xl p-5 shadow-sm">
+          <div className="bg-white rounded-2xl p-5 shadow-sm border-2 border-dashed border-gray-300">
             {/* Ticket Count Badge and Event Info */}
             <div className="flex items-start gap-3">
               <div className="w-10 h-10 bg-[#F0F2F5] rounded-full flex items-center justify-center flex-shrink-0">
@@ -68,7 +68,7 @@ export default function TransferDetails() {
 
             {/* Collapsible Seat Details */}
             <CollapsibleContent>
-              <div className="pt-4 mt-4 border-t border-gray-200 space-y-3">
+              <div className="pt-4 mt-4 border-t-2 border-dashed border-gray-300 space-y-3">
                 <p className="text-sm font-semibold text-gray-900">
                   Gate 07 • Area 229 • Block 229
                 </p>
