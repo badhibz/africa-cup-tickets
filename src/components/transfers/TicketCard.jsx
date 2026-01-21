@@ -84,12 +84,13 @@ export default function TicketCard({ transfer }) {
           )}
         </AnimatePresence>
 
-        {/* Tap to expand indicator */}
-        {!isExpanded && (
-          <div className="pb-3 flex justify-center">
-            <div className="w-8 h-1 bg-gray-300 rounded-full"></div>
-          </div>
-        )}
+          {/* Tap to expand indicator */}
+          {!isExpanded && (
+            <div className="pb-3 flex justify-center">
+              <div className="w-8 h-1 bg-gray-300 rounded-full"></div>
+            </div>
+          )}
+        </div>
       </div>
     </motion.div>
   );
