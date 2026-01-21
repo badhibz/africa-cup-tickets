@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronDown, Ticket, ArrowUpRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 
 export default function TransferDetails() {
@@ -19,15 +19,15 @@ export default function TransferDetails() {
           <ChevronLeft className="w-5 h-5" />
         </button>
 
-        {/* Transfer Badge (Version Grand Format Style Identique) */}
+        {/* Transfer Badge (Grand Format) */}
         <div className="flex justify-center">
           <div className="relative inline-flex items-center justify-center">
-            {/* Main Avatar - Même couleur de fond #F0F2F5 que ton snippet */}
-            <div className="w-20 h-20 rounded-full bg-[#F0F2F5] shadow-sm flex items-center justify-center">
-              <span className="text-3xl font-bold text-gray-800">1</span>
+            {/* Main Avatar : FOND BLANC demandé */}
+            <div className="w-20 h-20 rounded-full bg-white shadow-md flex items-center justify-center">
+              <span className="text-3xl font-bold text-gray-900">1</span>
             </div>
 
-            {/* Badge Icon - Bottom Right - Même couleur #5B8DEE que ton snippet */}
+            {/* Badge Icon : BLEU remis comme à l'origine */}
             <div className="absolute bottom-0 right-0 w-8 h-8 bg-white border-2 border-[#5B8DEE] rounded-full flex items-center justify-center">
               <ArrowUpRight className="w-4 h-4" style={{ color: '#5B8DEE' }} />
             </div>
@@ -59,7 +59,7 @@ export default function TransferDetails() {
                   </div>
                 </div>
                 
-                {/* Bouton avec Animation de Rotation */}
+                {/* Flèche qui tourne */}
                 <CollapsibleTrigger asChild>
                    <button className="flex-shrink-0 mt-1 focus:outline-none">
                      <motion.div
@@ -75,13 +75,10 @@ export default function TransferDetails() {
 
             {/* Contenu Dépliable */}
             <CollapsibleContent>
-              {/* --- LIGNE DE DÉCOUPE --- */}
+              {/* Ligne de découpe */}
               <div className="relative flex items-center w-full h-8 bg-white">
-                {/* Encoche Gauche */}
                 <div className="absolute left-0 w-3 h-6 bg-gray-50 rounded-r-full z-10" />
-                {/* Pointillés */}
                 <div className="flex-1 border-t-2 border-dashed border-gray-100 mx-5 h-0" />
-                {/* Encoche Droite */}
                 <div className="absolute right-0 w-3 h-6 bg-gray-50 rounded-l-full z-10" />
               </div>
 
@@ -92,8 +89,8 @@ export default function TransferDetails() {
                 </p>
                 <div className="flex items-center gap-3 bg-[#F9FAFB] rounded-xl p-3 border border-gray-100">
                   <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
-                    {/* Icone rouge comme demandé précédemment */}
-                    <Ticket className="w-5 h-5" style={{ color: '#a91101' }} />
+                    {/* Icone remise en BLEU */}
+                    <Ticket className="w-5 h-5" style={{ color: '#5B8DEE' }} />
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-gray-900">Row U • Seat 18</p>
