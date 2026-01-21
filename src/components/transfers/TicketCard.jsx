@@ -11,15 +11,10 @@ export default function TicketCard({ transfer }) {
       onClick={() => setIsExpanded(!isExpanded)}
       layout
     >
-      <div className="bg-white shadow-lg relative rounded-2xl overflow-hidden">
-        {/* Left notch */}
-        <div className="absolute left-0 top-[140px] w-5 h-10 bg-gray-50 rounded-r-full z-10"></div>
-        {/* Right notch */}
-        <div className="absolute right-0 top-[140px] w-5 h-10 bg-gray-50 rounded-l-full z-10"></div>
+      <div className="bg-white shadow-lg rounded-2xl overflow-hidden">
         
-        <div className="relative">
-          {/* Top Section - Always Visible */}
-          <div className="p-5">
+        {/* Top Section - Always Visible */}
+        <div className="p-5 pb-0">
           <div className="flex items-start gap-3">
             <div className="w-10 h-10 bg-[#F0F2F5] rounded-full flex items-center justify-center flex-shrink-0">
               <span className="text-sm font-bold text-gray-800">1</span>
@@ -34,14 +29,21 @@ export default function TicketCard({ transfer }) {
               </div>
             </div>
           </div>
-          </div>
+        </div>
 
-          {/* Tear Line */}
-          <div className="relative px-5">
-            <div className="border-t-2 border-dashed border-gray-300"></div>
-          </div>
+        {/* --- TEAR LINE SECTION (Dynamic placement) --- */}
+        <div className="relative flex items-center w-full h-10 my-1">
+            {/* Left Notch - Matches parent background (gray-50 usually, check your page bg) */}
+            <div className="absolute -left-3 w-6 h-6 bg-gray-50 rounded-full z-10"></div>
+            
+            {/* Dashed Line */}
+            <div className="flex-1 border-t-2 border-dashed border-gray-200 mx-5"></div>
+            
+            {/* Right Notch */}
+            <div className="absolute -right-3 w-6 h-6 bg-gray-50 rounded-full z-10"></div>
+        </div>
 
-          {/* Bottom Section - Expandable */}
+        {/* Bottom Section - Expandable */}
         <AnimatePresence>
           {isExpanded && (
             <motion.div
@@ -51,8 +53,7 @@ export default function TicketCard({ transfer }) {
               transition={{ duration: 0.3, ease: 'easeInOut' }}
               className="overflow-hidden"
             >
-              <div className="p-5 pt-4 space-y-4">
-                {/* Seat Details */}
+              <div className="p-5 pt-0 space-y-4">
                 <div>
                   <p className="text-sm font-semibold text-gray-900 mb-3">
                     Gate 07 • Area 229 • Block 229
@@ -68,29 +69,22 @@ export default function TicketCard({ transfer }) {
                   </div>
                 </div>
 
-                {/* QR Code Placeholder */}
-                <div className="flex flex-col items-center py-4">
-                  <div className="w-32 h-32 bg-gray-100 rounded-lg flex items-center justify-center mb-2">
-                    <div className="w-28 h-28 bg-white rounded grid grid-cols-4 gap-1 p-2">
-                      {[...Array(16)].map((_, i) => (
-                        <div key={i} className={`${Math.random() > 0.5 ? 'bg-gray-900' : 'bg-white'} rounded-sm`}></div>
-                      ))}
-                    </div>
-                  </div>
-                  <p className="text-xs text-gray-500">Scan at entrance</p>
+                {/* QR Code Area */}
+                <div className="flex flex-col items-center py-2">
+                   {/* ... QR Code content ... */}
+                   <p className="text-xs text-gray-500 mt-2">Scan at entrance</p>
                 </div>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
 
-          {/* Tap to expand indicator */}
-          {!isExpanded && (
-            <div className="pb-3 flex justify-center">
-              <div className="w-8 h-1 bg-gray-300 rounded-full"></div>
-            </div>
-          )}
-        </div>
+        {/* Indicator if collapsed */}
+        {!isExpanded && (
+          <div className="pb-3 flex justify-center">
+            <div className="w-8 h-1 bg-gray-200 rounded-full"></div>
+          </div>
+        )}
       </div>
     </motion.div>
   );
