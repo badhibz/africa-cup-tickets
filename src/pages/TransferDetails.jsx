@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronDown, ChevronUp, Ticket, ArrowUpRight } from 'lucide-react';
+import { ChevronLeft, ChevronDown, Ticket, ArrowUpRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
-import TransferBadge from '../components/transfers/TransferBadge'; // Assure-toi que le chemin est bon
 
 export default function TransferDetails() {
   const navigate = useNavigate();
-  const [isOpen, setIsOpen] = useState(false); // Fermé par défaut = Rectangle simple
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Main Content */}
       <div className="px-4 pt-6 pb-6 space-y-6">
         {/* Back Button */}
         <button
@@ -20,9 +19,19 @@ export default function TransferDetails() {
           <ChevronLeft className="w-5 h-5" />
         </button>
 
-        {/* Transfer Badge (Utilisation de ton composant) */}
+        {/* Transfer Badge (Version Grand Format Style Identique) */}
         <div className="flex justify-center">
-          <TransferBadge count={1} type="sent" />
+          <div className="relative inline-flex items-center justify-center">
+            {/* Main Avatar - Même couleur de fond #F0F2F5 que ton snippet */}
+            <div className="w-20 h-20 rounded-full bg-[#F0F2F5] shadow-sm flex items-center justify-center">
+              <span className="text-3xl font-bold text-gray-800">1</span>
+            </div>
+
+            {/* Badge Icon - Bottom Right - Même couleur #5B8DEE que ton snippet */}
+            <div className="absolute bottom-0 right-0 w-8 h-8 bg-white border-2 border-[#5B8DEE] rounded-full flex items-center justify-center">
+              <ArrowUpRight className="w-4 h-4" style={{ color: '#5B8DEE' }} />
+            </div>
+          </div>
         </div>
 
         {/* Transfer Info */}
@@ -35,7 +44,7 @@ export default function TransferDetails() {
         <Collapsible open={isOpen} onOpenChange={setIsOpen}>
           <div className="bg-white rounded-2xl shadow-sm overflow-hidden transition-all duration-300">
             
-            {/* PARTIE HAUTE (Toujours visible - Rectangle normal quand fermé) */}
+            {/* Header */}
             <div className="p-5 relative bg-white z-20">
               <div className="flex items-start gap-3">
                 <div className="w-10 h-10 bg-[#F0F2F5] rounded-full flex items-center justify-center flex-shrink-0">
@@ -49,38 +58,42 @@ export default function TransferDetails() {
                     <p>04.01.2026 • 17:00 • Complexe Sportif Prince MOULAY ABDELLAH</p>
                   </div>
                 </div>
-                <CollapsibleTrigger>
-                  {isOpen ? (
-                    <ChevronUp className="w-5 h-5 text-gray-400 flex-shrink-0 mt-1" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0 mt-1" />
-                  )}
+                
+                {/* Bouton avec Animation de Rotation */}
+                <CollapsibleTrigger asChild>
+                   <button className="flex-shrink-0 mt-1 focus:outline-none">
+                     <motion.div
+                       animate={{ rotate: isOpen ? 180 : 0 }}
+                       transition={{ duration: 0.3 }}
+                     >
+                       <ChevronDown className="w-5 h-5 text-gray-400" />
+                     </motion.div>
+                   </button>
                 </CollapsibleTrigger>
               </div>
             </div>
 
-            {/* CONTENU DÉPLIABLE (Contient la découpe + les infos) */}
+            {/* Contenu Dépliable */}
             <CollapsibleContent>
-              {/* 1. La Ligne de Découpe (Cachée quand fermé) */}
-              <div className="relative flex items-center w-full h-6 bg-white">
-                {/* Cercle Gauche (Couleur du fond de page = gray-50) */}
-                <div className="w-6 h-6 bg-gray-50 rounded-full absolute -left-3 z-10" />
-                
+              {/* --- LIGNE DE DÉCOUPE --- */}
+              <div className="relative flex items-center w-full h-8 bg-white">
+                {/* Encoche Gauche */}
+                <div className="absolute left-0 w-3 h-6 bg-gray-50 rounded-r-full z-10" />
                 {/* Pointillés */}
-                <div className="flex-1 border-t-2 border-dashed border-gray-100 mx-4 h-0" />
-                
-                {/* Cercle Droite */}
-                <div className="w-6 h-6 bg-gray-50 rounded-full absolute -right-3 z-10" />
+                <div className="flex-1 border-t-2 border-dashed border-gray-100 mx-5 h-0" />
+                {/* Encoche Droite */}
+                <div className="absolute right-0 w-3 h-6 bg-gray-50 rounded-l-full z-10" />
               </div>
 
-              {/* 2. Détails du siège */}
-              <div className="p-5 pt-2 bg-white">
+              {/* Détails */}
+              <div className="p-5 pt-0 bg-white">
                 <p className="text-sm font-semibold text-gray-900 mb-3">
                   Gate 07 • Area 229 • Block 229
                 </p>
                 <div className="flex items-center gap-3 bg-[#F9FAFB] rounded-xl p-3 border border-gray-100">
                   <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
-                    <Ticket className="w-5 h-5 text-blue-300" />
+                    {/* Icone rouge comme demandé précédemment */}
+                    <Ticket className="w-5 h-5" style={{ color: '#a91101' }} />
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-gray-900">Row U • Seat 18</p>
