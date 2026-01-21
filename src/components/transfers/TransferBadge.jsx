@@ -5,7 +5,7 @@ export default function TransferBadge({ count, type }) {
   return (
     <div className="relative inline-flex items-center justify-center">
       {/* Main Avatar */}
-      <div className="w-10 h-10 rounded-full bg-[#F0F2F5] flex items-center justify-center">
+      <div className="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center">
         <span className="text-sm font-bold text-gray-800">{count}</span>
       </div>
 
