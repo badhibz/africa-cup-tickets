@@ -23,21 +23,51 @@ export default function More() {
 
       {/* Main Content */}
       <div className="flex-1 px-4 py-6 space-y-4">
-        {/* Menu Items */}
-        <div className="space-y-3">
-          {menuItems.map((item, index) => (
-            <motion.button
-              key={index}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.05 }}
-              className="w-full bg-white rounded-xl p-4 flex items-center gap-4 hover:bg-gray-100 transition-colors"
-            >
-              <item.icon className="w-5 h-5 text-gray-700 flex-shrink-0" />
-              <span className="flex-1 text-left text-gray-700">{item.label}</span>
-              <ChevronRight className="w-5 h-5 text-gray-400" />
-            </motion.button>
-          ))}
+        {/* Group 1: Profile & Language */}
+        <div className="space-y-0 bg-white rounded-xl overflow-hidden">
+          <motion.button
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="w-full p-4 flex items-center gap-4 hover:bg-gray-100 transition-colors border-b border-gray-100"
+          >
+            <User className="w-5 h-5 text-gray-700 flex-shrink-0" />
+            <span className="flex-1 text-left text-gray-700">My Profile</span>
+            <ChevronRight className="w-5 h-5 text-gray-400" />
+          </motion.button>
+          <motion.button
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.05 }}
+            className="w-full p-4 flex items-center gap-4 hover:bg-gray-100 transition-colors"
+          >
+            <Globe className="w-5 h-5 text-gray-700 flex-shrink-0" />
+            <span className="flex-1 text-left text-gray-700">App language</span>
+            <ChevronRight className="w-5 h-5 text-gray-400" />
+          </motion.button>
+        </div>
+
+        {/* Group 2: Info & Support */}
+        <div className="space-y-0 bg-white rounded-xl overflow-hidden">
+          <motion.button
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="w-full p-4 flex items-center gap-4 hover:bg-gray-100 transition-colors border-b border-gray-100"
+          >
+            <Link2 className="w-5 h-5 text-gray-700 flex-shrink-0" />
+            <span className="flex-1 text-left text-gray-700">More information</span>
+            <ChevronRight className="w-5 h-5 text-gray-400" />
+          </motion.button>
+          <motion.button
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.15 }}
+            className="w-full p-4 flex items-center gap-4 hover:bg-gray-100 transition-colors"
+          >
+            <CreditCard className="w-5 h-5 text-gray-700 flex-shrink-0" />
+            <span className="flex-1 text-left text-gray-700">Support details</span>
+            <ChevronRight className="w-5 h-5 text-gray-400" />
+          </motion.button>
         </div>
 
         {/* Sign Out */}
@@ -46,7 +76,7 @@ export default function More() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="w-full bg-white rounded-xl p-4 flex items-center gap-4 hover:bg-gray-100 transition-colors mt-6"
+            className="w-full bg-white rounded-xl p-4 flex items-center gap-4 hover:bg-gray-100 transition-colors"
           >
             <LogOut className="w-5 h-5 text-gray-700 flex-shrink-0" />
             <span className="flex-1 text-left text-gray-700">Sign out</span>
