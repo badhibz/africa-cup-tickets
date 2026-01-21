@@ -71,18 +71,20 @@ export default function More() {
         </div>
 
         {/* Sign Out */}
-        <Link to={createPageUrl('SignOut')}>
-          <motion.button
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="w-full bg-white rounded-xl p-4 flex items-center gap-4 hover:bg-gray-100 transition-colors"
-          >
-            <LogOut className="w-5 h-5 text-gray-700 flex-shrink-0" />
-            <span className="flex-1 text-left text-gray-700">Sign out</span>
-            <ChevronRight className="w-5 h-5 text-gray-400" />
-          </motion.button>
-        </Link>
+        <div className="pt-4">
+          <Link to={createPageUrl('SignOut')}>
+            <motion.button
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="w-full bg-white rounded-xl p-4 flex items-center gap-4 hover:bg-gray-100 transition-colors"
+            >
+              <LogOut className="w-5 h-5 text-gray-700 flex-shrink-0" />
+              <span className="flex-1 text-left text-gray-700">Sign out</span>
+              <ChevronRight className="w-5 h-5 text-gray-400" />
+            </motion.button>
+          </Link>
+        </div>
       </div>
 
       {/* Bottom Navigation */}
