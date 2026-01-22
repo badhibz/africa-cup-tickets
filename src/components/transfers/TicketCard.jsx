@@ -94,7 +94,7 @@ export default function TicketCard() {
                       <img 
                         src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696f816de3955d53dc61efeb/5ea957c10_unnamed__1_-removebg-preview.png"
                         alt="Ticket"
-                        className="w-8 h-8 object-contain flex-shrink-0"
+                        className="w-12 h-12 object-contain flex-shrink-0"
                       />
                       <div>
                         <p className="text-sm font-bold text-gray-900">Row U • Seat 18</p>
