@@ -98,7 +98,11 @@ export default function TicketCard() {
 
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 bg-[#F0F2F5] rounded-full flex items-center justify-center flex-shrink-0">
-                        <Ticket className="w-4 h-4 text-[#93C5FD]" />
+                        <img 
+                          src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696f816de3955d53dc61efeb/24d914381_unnamed__1_-removebg-preview.png"
+                          alt="Ticket"
+                          className="w-4 h-4 object-contain"
+                        />
                       </div>
                       <div>
                         <p className="text-sm font-bold text-gray-900">Row U • Seat 18</p>
