@@ -7,7 +7,8 @@ export default function TicketCard({ transfer }) {
 
   return (
     <motion.div
-      // J'ai retiré le style drop-shadow ici pour enlever le contour extérieur
+      // J'ai SUPPRIMÉ la ligne "style={{ filter: drop-shadow... }}"
+      // Il n'y a plus aucune ombre autour de la carte. C'est du flat design pur.
       className="relative mx-auto max-w-sm cursor-pointer px-4 my-6"
       onClick={() => setIsExpanded(!isExpanded)}
       layout
@@ -15,7 +16,6 @@ export default function TicketCard({ transfer }) {
       <div className="relative">
         
         {/* --- PARTIE HAUTE --- */}
-        {/* Ajout de 'border border-gray-100' si tu veux un contour fin au lieu de l'ombre, sinon laisse comme ça pour du plat total */}
         <div className="p-5 bg-white rounded-t-2xl relative z-20">
           <div className="flex items-start gap-3">
             <div className="w-10 h-10 bg-[#F0F2F5] rounded-full flex items-center justify-center flex-shrink-0">
@@ -52,47 +52,48 @@ export default function TicketCard({ transfer }) {
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="overflow-hidden"
+              className="overflow-hidden relative z-10"
             >
-              
-              {/* ZONE DE DÉCOUPE (Les trous transparents) */}
-              <div 
-                className="h-6 w-full relative" 
-                style={{
-                  background: `
-                    radial-gradient(circle at 0 50%, transparent 12px, white 12.5px) left, 
-                    radial-gradient(circle at 100% 50%, transparent 12px, white 12.5px) right
-                  `,
-                  backgroundSize: '51% 100%',
-                  backgroundRepeat: 'no-repeat'
-                }}
-              >
-                 {/* Pas de pointillés */}
-              </div>
+              {/* Petite marge négative pour coller parfaitement les blocs sans ligne blanche */}
+              <div className="-mt-[1px]">
+                  {/* ZONE DE DÉCOUPE (Les trous transparents nets) */}
+                  <div 
+                    className="h-6 w-full relative" 
+                    style={{
+                      background: `
+                        radial-gradient(circle at 0 50%, transparent 12px, white 12.5px) left, 
+                        radial-gradient(circle at 100% 50%, transparent 12px, white 12.5px) right
+                      `,
+                      backgroundSize: '51% 100%',
+                      backgroundRepeat: 'no-repeat'
+                    }}
+                  >
+                  </div>
 
-              {/* Contenu du bas */}
-              <div className="bg-white rounded-b-2xl p-5 pt-2 space-y-4">
-                <div>
-                  <p className="text-sm font-semibold text-gray-900 mb-3">
-                    Gate 07 • Area 229 • Block 229
-                  </p>
-                  <div className="flex items-center gap-3 bg-[#F9FAFB] rounded-xl p-3">
-                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
-                      <Ticket className="w-5 h-5 text-[#93C5FD]" />
-                    </div>
+                  {/* Contenu du bas */}
+                  <div className="bg-white rounded-b-2xl p-5 pt-2 space-y-4">
                     <div>
-                      <p className="text-sm font-semibold text-gray-900">Row U • Seat 18</p>
-                      <p className="text-xs text-gray-600 mt-1">04010081232</p>
+                      <p className="text-sm font-semibold text-gray-900 mb-3">
+                        Gate 07 • Area 229 • Block 229
+                      </p>
+                      <div className="flex items-center gap-3 bg-[#F9FAFB] rounded-xl p-3">
+                        <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
+                          <Ticket className="w-5 h-5 text-[#93C5FD]" />
+                        </div>
+                        <div>
+                          <p className="text-sm font-semibold text-gray-900">Row U • Seat 18</p>
+                          <p className="text-xs text-gray-600 mt-1">04010081232</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col items-center py-2">
+                       <div className="w-24 h-24 bg-gray-100 rounded flex items-center justify-center">
+                          <span className="text-xs text-gray-400">QR CODE</span>
+                       </div>
+                       <p className="text-xs text-gray-500 mt-2">Scan at entrance</p>
                     </div>
                   </div>
-                </div>
-
-                <div className="flex flex-col items-center py-2">
-                   <div className="w-24 h-24 bg-gray-100 rounded flex items-center justify-center">
-                      <span className="text-xs text-gray-400">QR CODE</span>
-                   </div>
-                   <p className="text-xs text-gray-500 mt-2">Scan at entrance</p>
-                </div>
               </div>
             </motion.div>
           )}
