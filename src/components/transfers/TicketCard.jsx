@@ -69,22 +69,26 @@ export default function TicketCard() {
                   >
                   </div>
 
-                  {/* Contenu du bas (SANS QR CODE) */}
+                  {/* Contenu du bas */}
                   <div className="bg-white rounded-b-2xl p-5 pt-2 pb-6">
-                    <div>
-                      <p className="text-sm font-semibold text-gray-900 mb-3">
-                        Gate 07 • Area 229 • Block 229
-                      </p>
-                      <div className="flex items-center gap-3 bg-[#F9FAFB] rounded-xl p-3">
-                        <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
-                          <Ticket className="w-5 h-5 text-[#93C5FD]" />
-                        </div>
-                        <div>
-                          <p className="text-sm font-semibold text-gray-900">Row U • Seat 18</p>
-                          <p className="text-xs text-gray-600 mt-1">04010081232</p>
-                        </div>
+                    
+                    {/* Infos Gate/Block */}
+                    <p className="text-sm font-bold text-gray-900 mb-4">
+                      Gate 07 • Area 229 • Block 229
+                    </p>
+
+                    {/* Infos Siège - PLUS DE FOND GRIS ICI */}
+                    <div className="flex items-center gap-4">
+                      {/* Le rond de l'icône reste, mais le conteneur rectangulaire est supprimé */}
+                      <div className="w-10 h-10 bg-[#F0F2F5] rounded-full flex items-center justify-center flex-shrink-0">
+                        <Ticket className="w-5 h-5 text-[#93C5FD]" />
+                      </div>
+                      <div>
+                        <p className="text-base font-bold text-gray-900">Row U • Seat 18</p>
+                        <p className="text-sm text-gray-500">04010081232</p>
                       </div>
                     </div>
+
                   </div>
               </div>
             </motion.div>
