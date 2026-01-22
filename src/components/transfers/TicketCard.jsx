@@ -7,7 +7,6 @@ export default function TicketCard() {
 
   return (
     <motion.div
-      // Pas de shadow, pas de border -> Design 100% plat pour une découpe nette
       className="relative mx-auto max-w-sm cursor-pointer px-4 my-6"
       onClick={() => setIsExpanded(!isExpanded)}
       layout
@@ -53,10 +52,10 @@ export default function TicketCard() {
               transition={{ duration: 0.3, ease: 'easeInOut' }}
               className="overflow-hidden relative z-10"
             >
-              {/* Marge négative pour coller les blocs sans ligne blanche */}
+              {/* Marge négative pour coller les blocs */}
               <div className="-mt-[1px]">
                   
-                  {/* ZONE DE DÉCOUPE (Trous transparents nets) */}
+                  {/* ZONE DE DÉCOUPE */}
                   <div 
                     className="h-6 w-full relative" 
                     style={{
@@ -70,8 +69,8 @@ export default function TicketCard() {
                   >
                   </div>
 
-                  {/* Contenu du bas */}
-                  <div className="bg-white rounded-b-2xl p-5 pt-2 space-y-4">
+                  {/* Contenu du bas (SANS QR CODE) */}
+                  <div className="bg-white rounded-b-2xl p-5 pt-2 pb-6">
                     <div>
                       <p className="text-sm font-semibold text-gray-900 mb-3">
                         Gate 07 • Area 229 • Block 229
@@ -85,13 +84,6 @@ export default function TicketCard() {
                           <p className="text-xs text-gray-600 mt-1">04010081232</p>
                         </div>
                       </div>
-                    </div>
-
-                    <div className="flex flex-col items-center py-2">
-                       <div className="w-24 h-24 bg-gray-100 rounded flex items-center justify-center">
-                          <span className="text-xs text-gray-400">QR CODE</span>
-                       </div>
-                       <p className="text-xs text-gray-500 mt-2">Scan at entrance</p>
                     </div>
                   </div>
               </div>
