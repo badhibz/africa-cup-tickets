@@ -25,7 +25,7 @@ export default function TicketCard() {
         >
           <div className="flex items-start gap-2">
             {/* Icône du ticket */}
-            <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
+            <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
               <img 
                 src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696f816de3955d53dc61efeb/128c95cb6_unnamed-removebg-preview.png"
                 alt="Ticket"
