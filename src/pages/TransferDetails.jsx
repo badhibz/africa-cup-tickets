@@ -9,7 +9,7 @@ export default function TransferDetails() {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
-    // Fond de la page : GRIS CLAIR (C'est ce qui fait ressortir le billet blanc)
+    // Fond de la page : GRIS CLAIR
     <div className="min-h-screen bg-gray-50">
       <div className="px-4 pt-6 pb-6 space-y-6">
         {/* Back Button */}
@@ -41,15 +41,12 @@ export default function TransferDetails() {
         {/* --- TICKET (Fond Blanc) --- */}
         <div className="mx-auto max-w-sm">
           <Collapsible open={isOpen} onOpenChange={setIsOpen}>
-            {/* FOND DU BILLET : BLANC (bg-white)
-               Bordure très légère pour délimiter si besoin, ou juste l'ombre.
-            */}
+            {/* Conteneur principal BLANC avec bordure et ombre */}
             <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative">
               
               {/* --- PARTIE HAUTE --- */}
               <div className="p-3 relative z-10 bg-white">
                 <div className="flex items-start gap-3">
-                  {/* Rond "1" : Gris clair (bg-gray-100) pour le contraste sur le blanc */}
                   <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-xs font-bold text-gray-800">1</span>
                   </div>
@@ -81,21 +78,20 @@ export default function TransferDetails() {
               {/* --- CONTENU DÉPLIABLE --- */}
               <CollapsibleContent>
                 
-                {/* --- LIGNE DE DÉCOUPE --- */}
-                {/* Fond BLANC pour la zone de découpe */}
+                {/* --- LIGNE DE DÉCOUPE (CORRIGÉE) --- */}
                 <div className="relative flex items-center w-full h-6 bg-white">
-                  {/* Encoche GAUCHE :
-                      - Couleur = bg-gray-50 (Couleur du fond de la page)
-                      - C'est ça qui crée l'effet de trou sur le billet blanc
-                      - Margin négatif (-left-[4px]) pour cacher la bordure du conteneur
+                  {/* Encoche GAUCHE : 
+                      - w-5 (plus large) 
+                      - -left-[5px] (plus décalé pour bien couvrir la bordure)
+                      - z-50 (au-dessus de tout)
                   */}
-                  <div className="absolute -left-[4px] w-4 h-6 bg-gray-50 rounded-r-full z-20" />
+                  <div className="absolute -left-[5px] w-5 h-6 bg-gray-50 rounded-r-full z-50" />
                   
-                  {/* Ligne pointillée (Gris clair) */}
+                  {/* Ligne pointillée */}
                   <div className="flex-1 border-t border-dashed border-gray-200 mx-6 h-0" />
                   
-                  {/* Encoche DROITE */}
-                  <div className="absolute -right-[4px] w-4 h-6 bg-gray-50 rounded-l-full z-20" />
+                  {/* Encoche DROITE : Idem */}
+                  <div className="absolute -right-[5px] w-5 h-6 bg-gray-50 rounded-l-full z-50" />
                 </div>
 
                 {/* --- PARTIE BASSE --- */}
@@ -105,7 +101,6 @@ export default function TransferDetails() {
                   </p>
                   
                   <div className="flex items-center gap-3 p-1"> 
-                    {/* Icone Ticket : Gris clair (bg-gray-100) + Icone grise */}
                     <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0">
                       <Ticket className="w-3.5 h-3.5 text-gray-500" />
                     </div>
