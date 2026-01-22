@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
-import { ChevronLeft, ChevronDown, Ticket, ArrowUpRight } from 'lucide-react';
+import React from 'react';
+import { ChevronLeft, ArrowUpRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import TicketCard from './TicketCard'; // Assure-toi que le chemin est bon
 
 export default function TransferDetails() {
   const navigate = useNavigate();
-  const [isOpen, setIsOpen] = useState(true);
 
   return (
     // Fond de la page : GRIS CLAIR
@@ -38,83 +36,9 @@ export default function TransferDetails() {
           <p className="text-lg font-semibold text-gray-900">mohammed.sadry@gmail.com</p>
         </div>
 
-        {/* --- TICKET (Fond Blanc) --- */}
-        <div className="mx-auto max-w-sm">
-          <Collapsible open={isOpen} onOpenChange={setIsOpen}>
-            {/* Conteneur principal BLANC avec bordure et ombre */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative">
-              
-              {/* --- PARTIE HAUTE --- */}
-              <div className="p-3 relative z-10 bg-white">
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-xs font-bold text-gray-800">1</span>
-                  </div>
-                  
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-bold text-gray-900 text-sm mb-1 truncate pr-2">
-                      Maroc vs Tanzanie | Huitièmes de finale
-                    </h3>
-                    <div className="text-[11px] text-gray-500 leading-tight">
-                      <p>04.01.2026 • 17:00 • Complexe Sportif</p>
-                      <p>Prince MOULAY ABDELLAH</p>
-                    </div>
-                  </div>
-                  
-                  {/* Flèche animation */}
-                  <CollapsibleTrigger asChild>
-                    <button className="flex-shrink-0 mt-1 focus:outline-none p-1">
-                      <motion.div
-                        animate={{ rotate: isOpen ? 180 : 0 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <ChevronDown className="w-4 h-4 text-gray-400" />
-                      </motion.div>
-                    </button>
-                  </CollapsibleTrigger>
-                </div>
-              </div>
-
-              {/* --- CONTENU DÉPLIABLE --- */}
-              <CollapsibleContent>
-                
-                {/* --- LIGNE DE DÉCOUPE (CORRIGÉE) --- */}
-                <div className="relative flex items-center w-full h-6 bg-white">
-                  {/* Encoche GAUCHE : 
-                      - w-5 (plus large) 
-                      - -left-[5px] (plus décalé pour bien couvrir la bordure)
-                      - z-50 (au-dessus de tout)
-                  */}
-                  <div className="absolute -left-[5px] w-5 h-6 bg-gray-50 rounded-r-full z-50" />
-                  
-                  {/* Ligne pointillée */}
-                  <div className="flex-1 border-t border-dashed border-gray-200 mx-6 h-0" />
-                  
-                  {/* Encoche DROITE : Idem */}
-                  <div className="absolute -right-[5px] w-5 h-6 bg-gray-50 rounded-l-full z-50" />
-                </div>
-
-                {/* --- PARTIE BASSE --- */}
-                <div className="p-3 pt-1 bg-white">
-                  <p className="text-xs font-semibold text-gray-900 mb-2 pl-1">
-                    Gate 07 • Area 229 • Block 229
-                  </p>
-                  
-                  <div className="flex items-center gap-3 p-1"> 
-                    <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Ticket className="w-3.5 h-3.5 text-gray-500" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-bold text-gray-900">Row U • Seat 18</p>
-                      <p className="text-[10px] text-gray-500">04010081232</p>
-                    </div>
-                  </div>
-                </div>
-
-              </CollapsibleContent>
-            </div>
-          </Collapsible>
-        </div>
+        {/* --- TICKET (On utilise enfin le composant propre !) --- */}
+        {/* Plus de div blanche avec shadow ici, le composant gère tout */}
+        <TicketCard />
 
       </div>
     </div>
