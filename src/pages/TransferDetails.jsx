@@ -6,7 +6,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/component
 
 export default function TransferDetails() {
   const navigate = useNavigate();
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -19,7 +19,7 @@ export default function TransferDetails() {
           <ChevronLeft className="w-5 h-5" />
         </button>
 
-        {/* Transfer Badge (Original : Fond Blanc + Flèche Bleue) */}
+        {/* Transfer Badge (Grand format - Reste inchangé pour l'en-tête) */}
         <div className="flex justify-center">
           <div className="relative inline-flex items-center justify-center">
             <div className="w-20 h-20 rounded-full bg-white shadow-md flex items-center justify-center">
@@ -37,76 +37,88 @@ export default function TransferDetails() {
           <p className="text-lg font-semibold text-gray-900">mohammed.sadry@gmail.com</p>
         </div>
 
-        {/* --- TICKET CARD --- */}
-        <Collapsible open={isOpen} onOpenChange={setIsOpen}>
-          <div className="bg-white rounded-2xl shadow-sm overflow-hidden transition-all duration-300 relative">
-            
-            {/* Header */}
-            <div className="p-5 relative z-20 bg-white">
-              <div className="flex items-start gap-3">
-                <div className="w-10 h-10 bg-[#FFFFFF] rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-sm font-bold text-gray-800">1</span>
+        {/* --- TICKET MINIATURE (COMPACT & SANS TRACES) --- */}
+        {/* max-w-sm réduit la largeur globale (env 380px max) */}
+        <div className="mx-auto max-w-sm">
+          <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+            {/* Conteneur du Ticket */}
+            <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden relative">
+              
+              {/* --- PARTIE HAUTE --- */}
+              <div className="p-3 relative z-10 bg-white">
+                <div className="flex items-start gap-3">
+                  {/* ROND GRIS : bg-gray-100 */}
+                  <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-xs font-bold text-gray-800">1</span>
+                  </div>
+                  
+                  <div className="flex-1 min-w-0">
+                    {/* Titre Compact */}
+                    <h3 className="font-bold text-gray-900 text-sm mb-1 truncate pr-2">
+                      Maroc vs Tanzanie | Huitièmes de finale
+                    </h3>
+                    {/* Infos Compactes */}
+                    <div className="text-[11px] text-gray-500 leading-tight">
+                      <p>04.01.2026 • 17:00 • Complexe Sportif</p>
+                      <p>Prince MOULAY ABDELLAH</p>
+                    </div>
+                  </div>
+                  
+                  {/* Flèche animation */}
+                  <CollapsibleTrigger asChild>
+                    <button className="flex-shrink-0 mt-1 focus:outline-none p-1">
+                      <motion.div
+                        animate={{ rotate: isOpen ? 180 : 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <ChevronDown className="w-4 h-4 text-gray-400" />
+                      </motion.div>
+                    </button>
+                  </CollapsibleTrigger>
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-bold text-gray-900 text-base mb-2">
-                    Maroc vs Tanzanie | Huitièmes de finale
-                  </h3>
-                  <div className="text-sm text-gray-600">
-                    <p>04.01.2026 • 17:00 • Complexe Sportif Prince MOULAY ABDELLAH</p>
+              </div>
+
+              {/* --- CONTENU DÉPLIABLE --- */}
+              <CollapsibleContent>
+                
+                {/* ZONE DE DÉCOUPE (SANS LIGNES) */}
+                <div className="relative flex items-center w-full h-4 bg-white">
+                  {/* ENCOCHE GAUCHE : 
+                      - -left-[1px] : Décale l'encoche vers la gauche pour MANGER la bordure du conteneur.
+                      - z-20 : Passe AU-DESSUS de la bordure.
+                      - bg-gray-50 : Couleur exacte du fond pour effacer.
+                  */}
+                  <div className="absolute -left-[1px] w-3 h-6 bg-gray-50 rounded-r-full z-20" />
+                  
+                  {/* Ligne pointillée très fine */}
+                  <div className="flex-1 border-t border-dashed border-gray-200 mx-5 h-0" />
+                  
+                  {/* ENCOCHE DROITE : Même technique, décale vers la droite pour manger la bordure */}
+                  <div className="absolute -right-[1px] w-3 h-6 bg-gray-50 rounded-l-full z-20" />
+                </div>
+
+                {/* --- PARTIE BASSE --- */}
+                <div className="p-3 pt-1 bg-white">
+                  <p className="text-xs font-semibold text-gray-900 mb-2">
+                    Gate 07 • Area 229 • Block 229
+                  </p>
+                  {/* Boite grise détails */}
+                  <div className="flex items-center gap-3 bg-[#F9FAFB] rounded-lg p-2 border border-gray-100">
+                    <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center flex-shrink-0 shadow-sm border border-gray-50">
+                      <Ticket className="w-3.5 h-3.5 text-blue-400" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-gray-900">Row U • Seat 18</p>
+                      <p className="text-[10px] text-gray-500">04010081232</p>
+                    </div>
                   </div>
                 </div>
-                
-                {/* Flèche animation */}
-                <CollapsibleTrigger asChild>
-                   <button className="flex-shrink-0 mt-1 focus:outline-none">
-                     <motion.div
-                       animate={{ rotate: isOpen ? 180 : 0 }}
-                       transition={{ duration: 0.3 }}
-                     >
-                       <ChevronDown className="w-5 h-5 text-gray-400" />
-                     </motion.div>
-                   </button>
-                </CollapsibleTrigger>
-              </div>
+
+              </CollapsibleContent>
             </div>
+          </Collapsible>
+        </div>
 
-            {/* Contenu Dépliable */}
-            <CollapsibleContent>
-              {/* --- LIGNE DE DÉCOUPE (VISIBLE) --- */}
-              <div className="relative flex items-center w-full h-10 bg-white">
-                
-                {/* ENCOCHE GAUCHE : Gros demi-cercle gris collé à gauche */}
-                {/* IMPORTANT : bg-gray-50 doit être la même couleur que le fond de la page */}
-                <div className="absolute left-0 w-5 h-10 bg-gray-50 rounded-r-full z-50" />
-                
-                {/* Ligne Pointillée : Bien visible */}
-                <div className="flex-1 border-t-2 border-dashed border-gray-100 mx-7 h-0" />
-                
-                {/* ENCOCHE DROITE : Gros demi-cercle gris collé à droite */}
-                <div className="absolute right-0 w-5 h-10 bg-gray-50 rounded-l-full z-50" />
-                
-              </div>
-
-              {/* Détails */}
-              <div className="p-5 pt-0 bg-white">
-                <p className="text-sm font-semibold text-gray-900 mb-3">
-                  Gate 07 • Area 229 • Block 229
-                </p>
-                <div className="flex items-center gap-3 bg-[#FFFFF] ">
-                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
-                    {/* Ticket Bleu (Original) */}
-                    <Ticket className="w-5 h-5 text-blue-300" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-gray-900">Row U • Seat 18</p>
-                    <p className="text-xs text-gray-600 mt-1">04010081232</p>
-                  </div>
-                </div>
-              </div>
-            </CollapsibleContent>
-
-          </div>
-        </Collapsible>
       </div>
     </div>
   );
