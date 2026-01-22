@@ -7,15 +7,15 @@ export default function TicketCard({ transfer }) {
 
   return (
     <motion.div
+      // J'ai retiré le style drop-shadow ici pour enlever le contour extérieur
       className="relative mx-auto max-w-sm cursor-pointer px-4 my-6"
       onClick={() => setIsExpanded(!isExpanded)}
       layout
-      // L'ombre suit la découpe grâce au drop-shadow
-      style={{ filter: "drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.1))" }}
     >
       <div className="relative">
         
         {/* --- PARTIE HAUTE --- */}
+        {/* Ajout de 'border border-gray-100' si tu veux un contour fin au lieu de l'ombre, sinon laisse comme ça pour du plat total */}
         <div className="p-5 bg-white rounded-t-2xl relative z-20">
           <div className="flex items-start gap-3">
             <div className="w-10 h-10 bg-[#F0F2F5] rounded-full flex items-center justify-center flex-shrink-0">
@@ -55,7 +55,7 @@ export default function TicketCard({ transfer }) {
               className="overflow-hidden"
             >
               
-              {/* ZONE DE DÉCOUPE (Juste les trous, sans pointillés) */}
+              {/* ZONE DE DÉCOUPE (Les trous transparents) */}
               <div 
                 className="h-6 w-full relative" 
                 style={{
@@ -67,7 +67,7 @@ export default function TicketCard({ transfer }) {
                   backgroundRepeat: 'no-repeat'
                 }}
               >
-                 {/* J'ai supprimé la div border-dashed qui était ici */}
+                 {/* Pas de pointillés */}
               </div>
 
               {/* Contenu du bas */}
