@@ -90,7 +90,7 @@ export default function TicketCard() {
                       Gate 07 • Area 229 • Block 229
                     </p>
 
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-1">
                       <img 
                         src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696f816de3955d53dc61efeb/5ea957c10_unnamed__1_-removebg-preview.png"
                         alt="Ticket"
