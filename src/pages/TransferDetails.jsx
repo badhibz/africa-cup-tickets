@@ -80,7 +80,7 @@ export default function TransferDetails() {
                 <div className="absolute left-0 w-5 h-10 bg-gray-50 rounded-r-full z-50" />
                 
                 {/* Ligne Pointillée : Bien visible */}
-                <div className="flex-1 border-t-2 border-dashed border-gray-200 mx-7 h-0" />
+                <div className="flex-1 border-t-2 border-dashed border-gray-100 mx-7 h-0" />
                 
                 {/* ENCOCHE DROITE : Gros demi-cercle gris collé à droite */}
                 <div className="absolute right-0 w-5 h-10 bg-gray-50 rounded-l-full z-50" />
