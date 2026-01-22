@@ -1,13 +1,14 @@
 import React from 'react';
 import { ChevronLeft, ArrowUpRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import TicketCard from '../components/transfers/TicketCard';
+import TicketCard from './TicketCard'; // Vérifie que le chemin est bon
 
 export default function TransferDetails() {
   const navigate = useNavigate();
 
   return (
-    // Fond de la page : GRIS CLAIR
+    // Fond de la page : GRIS CLAIR (bg-gray-50)
+    // C'est ce gris qu'on verra à travers les trous du ticket
     <div className="min-h-screen bg-gray-50">
       <div className="px-4 pt-6 pb-6 space-y-6">
         {/* Back Button */}
@@ -36,8 +37,8 @@ export default function TransferDetails() {
           <p className="text-lg font-semibold text-gray-900">mohammed.sadry@gmail.com</p>
         </div>
 
-        {/* --- TICKET (On utilise enfin le composant propre !) --- */}
-        {/* Plus de div blanche avec shadow ici, le composant gère tout */}
+        {/* --- TICKET CARD --- */}
+        {/* C'est ici qu'on appelle le composant propre, sans bordures parasites */}
         <TicketCard />
 
       </div>
