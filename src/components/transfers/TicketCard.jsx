@@ -111,14 +111,12 @@ export default function TicketCard() {
 
                     <div className="flex items-center gap-4">
                       
-                      {/* CERCLE GRIS + ICÔNE TICKET */}
-                      <div className="w-10 h-10 bg-[#F0F2F5] rounded-full flex items-center justify-center flex-shrink-0">
-                         <img 
-                           src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696f816de3955d53dc61efeb/e8e02a256_unnamed__1_-removebg-preview.png"
-                           alt="Ticket"
-                           className="w-5 h-5 object-contain"
-                         />
-                      </div>
+                      {/* ICÔNE TICKET */}
+                      <img 
+                        src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696f816de3955d53dc61efeb/e8e02a256_unnamed__1_-removebg-preview.png"
+                        alt="Ticket"
+                        className="w-10 h-10 object-contain flex-shrink-0"
+                      />
 
                       <div>
                         <p className="text-base font-normal text-gray-900">Row U • Seat 18</p>
