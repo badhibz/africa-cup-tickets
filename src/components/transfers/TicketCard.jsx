@@ -111,26 +111,27 @@ export default function TicketCard() {
 
                     <div className="flex items-center gap-4">
                       
-                      {/* CERCLE GRIS + ICÔNE TICKET (CORRIGÉE : LIGNE PLEINE) */}
+                      {/* CERCLE GRIS + ICÔNE TICKET (CORRIGÉE : HORIZONTALE & PROPRE) */}
                       <div className="w-10 h-10 bg-[#F0F2F5] rounded-full flex items-center justify-center flex-shrink-0">
-                         {/* SVG PERSONNALISÉ (Forme allongée + Ligne pleine) */}
                          <svg 
                            viewBox="0 0 24 24" 
                            fill="none" 
                            xmlns="http://www.w3.org/2000/svg"
-                           className="w-auto h-5 text-gray-400 flex-shrink-0"
+                           // w-5 h-5 est la taille parfaite pour que ça rentre sans toucher les bords
+                           className="w-5 h-5 text-gray-400 flex-shrink-0"
                          >
-                           {/* Contour du ticket */}
+                           {/* Contour Horizontal : Identique à l'icône Lucide 'Ticket' standard */}
                            <path 
-                             d="M5 9V6.5C5 4.01 7.01 2 9.5 2H14.5C16.99 2 19 4.01 19 6.5V9C17.34 9 16 10.34 16 12C16 13.66 17.34 15 19 15V17.5C19 19.99 16.99 22 14.5 22H9.5C7.01 22 5 19.99 5 17.5V15C6.66 15 8 13.66 8 12C8 10.34 6.66 9 5 9Z" 
+                             d="M2 9V6.5C2 4.01 4.01 2 6.5 2H17.5C19.99 2 22 4.01 22 6.5V9C20.34 9 19 10.34 19 12C19 13.66 20.34 15 22 15V17.5C22 19.99 19.99 22 17.5 22H6.5C4.01 22 2 19.99 2 17.5V15C3.66 15 5 13.66 5 12C5 10.34 3.66 9 2 9Z" 
                              stroke="currentColor" 
                              strokeWidth="2"
                              strokeLinecap="round"
                              strokeLinejoin="round"
                            />
-                           {/* Ligne verticale SOLIDE (comme sur l'exemple joint) */}
+                           {/* Ligne verticale SOLIDE (x à 14.5 pour être un peu décalée comme un vrai ticket) ou centrée */}
+                           {/* Sur ton image, elle semble un peu décalée vers la droite, comme le "stub" d'un billet */}
                            <path 
-                             d="M12 2V22" 
+                             d="M16 2V22" // Ligne décalée à droite (standard ticket stub)
                              stroke="currentColor" 
                              strokeWidth="2" 
                              strokeLinecap="round" 
