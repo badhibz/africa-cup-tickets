@@ -12,18 +12,17 @@ export default function TicketCard() {
       onClick={() => setIsExpanded(!isExpanded)}
       layout
     >
-      {/* Ajout d'un bg-white global pour éviter les artefacts gris dans les coins */}
-      <div className="relative bg-white rounded-xl overflow-hidden">
+      {/* Fond blanc global avec coins arrondis pour éviter les artefacts */}
+      <div className="relative bg-white rounded-xl overflow-hidden shadow-sm">
         
         {/* --- PARTIE HAUTE --- */}
         <motion.div
           layout
-          // Retrait des rounded conditionnels ici car le conteneur parent gère l'arrondi global
           className="p-3 relative z-20"
         >
           <div className="flex items-start gap-3">
             
-            {/* --- BADGE 1 --- */}
+            {/* --- BADGE 1 (Reste inchangé car il est parfait) --- */}
             <div className="relative w-10 h-10 bg-[#F0F2F5] rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden">
               <span className="text-sm font-bold text-gray-800 z-10 pr-1">1</span>
               <Ticket 
@@ -53,7 +52,7 @@ export default function TicketCard() {
             </motion.div>
           </div>
           
-          {/* Indicateur visuel */}
+          {/* Indicateur visuel (Barre grise) */}
           {!isExpanded && (
             <motion.div 
               initial={{ opacity: 0 }} 
@@ -77,12 +76,11 @@ export default function TicketCard() {
             >
               <div>
                   
-                  {/* ZONE DE DÉCOUPE NETTE */}
-                  {/* Le fond est blanc, et on "creuse" des cercles transparents sur les côtés */}
+                  {/* ZONE DE DÉCOUPE (Encoches latérales + Pointillés espacés) */}
                   <div 
                     className="h-4 w-full relative flex items-center justify-center bg-white" 
                     style={{
-                        // Les dégradés vont du transparent (le trou) vers le blanc (le reste du ticket)
+                      // Masques radiaux pour créer les trous transparents sur les côtés
                       backgroundImage: `
                         radial-gradient(circle at 0 50%, transparent 8px, white 8.5px),
                         radial-gradient(circle at 100% 50%, transparent 8px, white 8.5px)
@@ -106,7 +104,6 @@ export default function TicketCard() {
                   </div>
 
                   {/* Contenu du bas */}
-                  {/* Retrait du rounded-b ici aussi */}
                   <div className="p-4 pt-3 pb-8">
                     
                     <p className="text-xs font-bold text-gray-900 mb-4">
@@ -115,15 +112,27 @@ export default function TicketCard() {
 
                     <div className="flex items-center gap-4">
                       
-                      {/* CERCLE GRIS + ICÔNE TICKET (PARFAITEMENT COHÉRENTE) */}
-                      <div className="relative w-10 h-10 bg-[#F0F2F5] rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden">
-                         {/* 1. On utilise la MÊME icône Lucide que celle du haut pour la forme exacte */}
-                         <Ticket 
-                           className="w-5 h-5 text-gray-400" 
-                           strokeWidth={2} 
-                         />
-                         {/* 2. On ajoute une barre verticale solide par-dessus les pointillés */}
-                         <div className="absolute h-3 w-[2px] bg-gray-400 rounded-full left-[calc(50%+3px)]"></div>
+                      {/* CERCLE GRIS + ICÔNE TICKET (SVG PERSONNALISÉ PARFAIT) */}
+                      <div className="relative w-10 h-10 bg-[#F0F2F5] rounded-full flex items-center justify-center flex-shrink-0">
+                         
+                         {/* SVG dessiné à la main pour un contrôle total */}
+                         <svg 
+                            width="24" height="24" viewBox="0 0 24 24" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            strokeWidth="2" 
+                            strokeLinecap="round" 
+                            strokeLinejoin="round" 
+                            className="w-5 h-5 text-gray-400"
+                          >
+                            {/* 1. Le contour du ticket (Rectangle avec encoches comme Lucide) */}
+                            <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
+                            
+                            {/* 2. La ligne de séparation (SOLIDE) décalée à droite (x=17) */}
+                            {/* C'est ce qui donne l'effet "stub" exact de votre image cible */}
+                            <path d="M17 2v20" />
+                          </svg>
+
                       </div>
 
                       <div>
